@@ -1,5 +1,5 @@
 FROM 345280441424.dkr.ecr.ap-south-1.amazonaws.com/ark_base_java11:latest
-RUN useradd -r -g tomcat tomcat
+RUN useradd -M tomcat
 
 ENV TOMCAT_VERSION=9.0.22  \
     TOMCAT_MAJOR_VERSION=9
@@ -16,6 +16,7 @@ RUN cd /tmp && \
 ENV CATALINA_HOME /opt/tomcat/
 ENV CATALINA_PID /opt/tomcat/temp/tomcat.pid
 ENV PATH=/opt/tomcat/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WORKDIR /opt/tomcat
 USER tomcat
 EXPOSE 8080
 CMD ["catalina.sh","run"]
