@@ -10,7 +10,7 @@ RUN cd /tmp && \
     tar -xf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
     rm apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
     mv apache-tomcat-${TOMCAT_VERSION} /opt/tomcat/ && \
-    chown -R tomcat: /opt/tomcat && \
+    chown -R tomcat:tomcat /opt/tomcat && \
     chmod +x /opt/tomcat/bin/*.sh
 
 ENV CATALINA_HOME /opt/tomcat/
