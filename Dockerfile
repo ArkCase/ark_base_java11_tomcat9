@@ -18,8 +18,6 @@ RUN cd /tmp && \
     mv apache-tomcat-${TOMCAT_VERSION} /opt/tomcat/ && \
     chown -R tomcat:tomcat /opt/tomcat && \
     chmod +x /opt/tomcat/bin/*.sh && \
-    # Remove server banner
-    sed -i "s/\    <Connector\ port=\"8080\"\ protocol=\"HTTP\/1.1\"/\    <Connector\ port=\"8080\"\ protocol=\"HTTP\/1.1\"\n\               Server=\" \"/g" /opt/tomcat/conf/server.xml ; &&\
     # Removal of default/unwanted Applications
     rm -f -r -d /opt/tomcat/webapps/* 
 
