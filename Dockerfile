@@ -7,7 +7,7 @@ LABEL ORG="Armedia LLC" \
 
 RUN useradd  --system --user-group tomcat
 
-ENV TOMCAT_VERSION=9.0.22  \
+ENV TOMCAT_VERSION=9.0.50  \
     TOMCAT_MAJOR_VERSION=9
 
 ADD  https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz /tmp
@@ -21,9 +21,9 @@ RUN cd /tmp && \
     # Removal of default/unwanted Applications
     rm -f -r -d /opt/tomcat/webapps/* 
 
-ENV CATALINA_HOME /opt/tomcat/
-ENV CATALINA_PID /opt/tomcat/temp/tomcat.pid
-ENV PATH=/opt/tomcat/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV CATALINA_HOME="/opt/tomcat/"\
+    CATALINA_PID="/opt/tomcat/temp/tomcat.pid"\
+    PATH="/opt/tomcat/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 WORKDIR /opt/tomcat
 USER tomcat
 EXPOSE 8080
