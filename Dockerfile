@@ -29,9 +29,3 @@ USER tomcat
 EXPOSE 8080
 # Starting tomcat
 CMD ["catalina.sh","run"]
-
-
-
-
-
-
